@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     MatSlideToggleModule,
     MatToolbarModule,
     MatCardModule,
+    MatChipsModule,
     MatIconModule,
     MatDividerModule,
     MatGridListModule,
@@ -33,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     MatSlideToggleModule,
     MatToolbarModule,
     MatCardModule,
+    MatChipsModule,
     MatIconModule,
     MatDividerModule,
     MatGridListModule,

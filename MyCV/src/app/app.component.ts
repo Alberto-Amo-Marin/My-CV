@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditCvDialogComponent } from './edit-cv-dialog/edit-cv-dialog.component';
-import { MaterialModule } from './material.module'; 
+import { MaterialModule } from './material.module';
 import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: true,
+  //standalone: true,
   imports: [
     MaterialModule, // Importamos el MaterialModule
     EditCvDialogComponent,
@@ -30,9 +31,21 @@ export class AppComponent {
   ];
 
   skills: string[] = ['Angular', 'TypeScript', 'JavaScript', 'CSS', 'HTML'];
+
+  chipColors: string[] = this.skills.map(() => this.getRandomColor());
+
   projects: string[] = ['Proyecto 1', 'Proyecto 2', 'Proyecto 3'];
 
   constructor(private dialog: MatDialog) { }
+
+  getRandomColor(): string {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
   openEditCvDialog(): void {
     const dialogRef = this.dialog.open(EditCvDialogComponent, {
