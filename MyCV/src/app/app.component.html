@@ -1,4 +1,8 @@
-<mat-toolbar color="primary">{{ name }} - {{ title }}</mat-toolbar>
+<mat-toolbar color="primary">
+  {{ name }} - {{ title }}
+  <span class="spacer"></span>
+  <mat-slide-toggle (change)="toggleDarkMode()">Dark Mode</mat-slide-toggle>
+</mat-toolbar>
 <div class='container'>
   <mat-card>
     <h2>Sobre mí</h2>

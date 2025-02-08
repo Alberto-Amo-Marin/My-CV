@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatButtonModule,
     MatGridListModule,
-    MatDividerModule],
+    MatDividerModule,
+    MatSlideToggleModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -34,4 +36,11 @@ export class AppComponent {
   ];
   skills = ['Angular', 'TypeScript', 'JavaScript', 'CSS', 'HTML'];
   projects = ['Proyecto 1', 'Proyecto 2', 'Proyecto 3'];
+
+  isDarkMode = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    document.body.classList.toggle('dark-mode', this.isDarkMode);
+  }
 }
