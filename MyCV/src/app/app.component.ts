@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { MaterialModule } from './material.module'; // Importa el nuevo módulo centralizado
+import { MaterialModule } from './material.module'; 
 import { EditCvDialogComponent } from './edit-cv-dialog/edit-cv-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,9 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [
-    MaterialModule, // Ahora solo importas el MaterialModule
-    EditCvDialogComponent
+    MaterialModule, 
+    EditCvDialogComponent,
+    CommonModule
   ]
 })
 export class AppComponent {
@@ -39,8 +41,8 @@ export class AppComponent {
         name: this.name,
         title: this.title,
         about: this.about,
-        experience: this.experience,
-        education: this.education,
+        experience: this.experience,  
+        education: this.education,    
         skills: this.skills.join(', '),
         projects: this.projects.join(', ')
       }
@@ -51,10 +53,12 @@ export class AppComponent {
         this.name = result.name;
         this.title = result.title;
         this.about = result.about;
-        this.experience = result.experience;
-        this.education = result.education;
 
-        // Corrected map with explicit string type
+        
+        this.experience = result.experience; 
+        this.education = result.education;   
+
+       
         this.skills = result.skills.split(', ').map((skill: string) => skill.trim());
         this.projects = result.projects.split(', ').map((project: string) => project.trim());
       }
