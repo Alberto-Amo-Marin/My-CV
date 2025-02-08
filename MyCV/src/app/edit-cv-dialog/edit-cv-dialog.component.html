@@ -15,24 +15,52 @@
     <textarea matInput [(ngModel)]="about"></textarea>
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Experiencia</mat-label>
-    <input matInput [(ngModel)]="experience" />
-  </mat-form-field>
+  <!-- Experiencia (usando campos separados para cada propiedad) -->
+  <div *ngFor="let job of experience; let i = index">
+    <mat-form-field appearance="fill">
+      <mat-label>Empresa {{ i + 1 }}</mat-label>
+      <input matInput [(ngModel)]="job.company" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Puesto {{ i + 1 }}</mat-label>
+      <input matInput [(ngModel)]="job.role" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Periodo {{ i + 1 }}</mat-label>
+      <input matInput [(ngModel)]="job.period" />
+    </mat-form-field>
+  </div>
+  
+  <button mat-button (click)="addExperience()">Agregar experiencia</button>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Educación</mat-label>
-    <input matInput [(ngModel)]="education" />
-  </mat-form-field>
+  <!-- Educación (usando campos separados para cada propiedad) -->
+  <div *ngFor="let edu of education; let i = index">
+    <mat-form-field appearance="fill">
+      <mat-label>Escuela {{ i + 1 }}</mat-label>
+      <input matInput [(ngModel)]="edu.school" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Título {{ i + 1 }}</mat-label>
+      <input matInput [(ngModel)]="edu.degree" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Año {{ i + 1 }}</mat-label>
+      <input matInput [(ngModel)]="edu.year" />
+    </mat-form-field>
+  </div>
 
+  <button mat-button (click)="addEducation()">Agregar educación</button>
+
+  <!-- Habilidades (como una cadena separada por comas) -->
   <mat-form-field appearance="fill">
     <mat-label>Habilidades</mat-label>
-    <input matInput [(ngModel)]="skills" />
+    <input matInput [(ngModel)]="skillsStr" />
   </mat-form-field>
 
+  <!-- Proyectos (como una cadena separada por comas) -->
   <mat-form-field appearance="fill">
     <mat-label>Proyectos</mat-label>
-    <input matInput [(ngModel)]="projects" />
+    <input matInput [(ngModel)]="projectsStr" />
   </mat-form-field>
 </mat-dialog-content>
 
