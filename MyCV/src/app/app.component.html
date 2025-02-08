@@ -1,9 +1,10 @@
 <mat-toolbar color="primary">
   {{ name }} - {{ title }}
   <span class="spacer"></span>
-  <mat-slide-toggle (change)="toggleDarkMode()">Dark Mode</mat-slide-toggle>
+  <mat-icon (click)="openEditCvDialog()">edit</mat-icon>
 </mat-toolbar>
-<div class='container'>
+
+<div class="container">
   <mat-card>
     <h2>Sobre mí</h2>
     <p>{{ about }}</p>

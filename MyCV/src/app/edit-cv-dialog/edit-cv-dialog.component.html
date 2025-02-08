@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Editar CV</h1>
+
+<mat-dialog-content>
+  <form>
+    <!-- Campo para el nombre -->
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="data.name" name="name" required>
+    </mat-form-field>
+
+    <!-- Campo para el título -->
+    <mat-form-field appearance="fill">
+      <mat-label>Título</mat-label>
+      <input matInput [(ngModel)]="data.title" name="title" required>
+    </mat-form-field>
+
+    <!-- Campo para la descripción -->
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput [(ngModel)]="data.about" name="about"></textarea>
+    </mat-form-field>
+
+    <!-- Campo para la experiencia -->
+    <mat-form-field appearance="fill">
+      <mat-label>Experiencia</mat-label>
+      <textarea matInput [(ngModel)]="data.experience" name="experience" placeholder="Ejemplo: Empresa 1 - Puesto - 2020 - Presente"></textarea>
+    </mat-form-field>
+
+    <!-- Campo para la educación -->
+    <mat-form-field appearance="fill">
+      <mat-label>Educación</mat-label>
+      <textarea matInput [(ngModel)]="data.education" name="education" placeholder="Ejemplo: Universidad XYZ - Licenciatura en Computación - 2015 - 2019"></textarea>
+    </mat-form-field>
+
+    <!-- Campo para las habilidades -->
+    <mat-form-field appearance="fill">
+      <mat-label>Habilidades</mat-label>
+      <input matInput [(ngModel)]="data.skills" name="skills" placeholder="Ejemplo: Angular, JavaScript, TypeScript, etc.">
+    </mat-form-field>
+
+    <!-- Campo para los proyectos -->
+    <mat-form-field appearance="fill">
+      <mat-label>Proyectos</mat-label>
+      <input matInput [(ngModel)]="data.projects" name="projects" placeholder="Ejemplo: Proyecto 1, Proyecto 2, etc.">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button (click)="onSave()">Guardar</button>
+</mat-dialog-actions>
