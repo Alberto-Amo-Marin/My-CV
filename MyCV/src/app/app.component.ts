@@ -1,23 +1,30 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { EditCvDialogComponent } from './edit-cv-dialog/edit-cv-dialog.component';
-import { MaterialModule } from './material.module';
 import { CommonModule } from '@angular/common';
-
+import { NgModule } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  //standalone: true,
+
   imports: [
-    MaterialModule, // Importamos el MaterialModule
-    EditCvDialogComponent,
-    CommonModule
+    CommonModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatChipsModule,
+    MatIconModule,
+    MatDividerModule,
+    MatGridListModule
   ]
 })
 export class AppComponent {
-  name: string = 'Tu Nombre';
+  name: string = 'Your Name';
   title: string = 'Desarrollador Web';
   about: string = 'Descripción breve sobre ti';
 
@@ -32,45 +39,11 @@ export class AppComponent {
 
   skills: string[] = ['Angular', 'TypeScript', 'JavaScript', 'CSS', 'HTML'];
 
-  chipColors: string[] = this.skills.map(() => this.getRandomColor());
-
   projects: string[] = ['Proyecto 1', 'Proyecto 2', 'Proyecto 3'];
 
-  constructor(private dialog: MatDialog) { }
+  constructor() { }
 
-  getRandomColor(): string {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
 
-  openEditCvDialog(): void {
-    const dialogRef = this.dialog.open(EditCvDialogComponent, {
-      width: '500px',
-      data: {
-        name: this.name,
-        title: this.title,
-        about: this.about,
-        experience: this.experience,  // No convertir a cadena, pasar el array directamente
-        education: this.education,    // No convertir a cadena, pasar el array directamente
-        skills: this.skills.join(', '),
-        projects: this.projects.join(', ')
-      }
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.name = result.name;
-        this.title = result.title;
-        this.about = result.about;
-        this.experience = result.experience;  // Asignar directamente como array
-        this.education = result.education;    // Asignar directamente como array
-        this.skills = result.skills.split(', ').map((skill: string) => skill.trim());
-        this.projects = result.projects.split(', ').map((project: string) => project.trim());
-      }
-    });
-  }
+
 }

@@ -1,7 +1,6 @@
 <mat-toolbar color="primary">
   {{ name }} - {{ title }}
   <span class="spacer"></span>
-  <button mat-icon-button color="accent" (click)="openEditCvDialog()"><mat-icon>edit</mat-icon></button>
 </mat-toolbar>
 
 <div class="container">
@@ -26,9 +25,9 @@
   <mat-divider></mat-divider>
   <mat-card>
     <h2>Habilidades</h2>
-    <mat-chip-list>
-      <mat-chip *ngFor="let skill of skills; let i = index" [style.background-color]="chipColors[i]">{{ skill }}</mat-chip>
-    </mat-chip-list>
+    <mat-chip-set>
+      <mat-chip *ngFor="let skill of skills; let i = index" color="primary">{{ skill }}</mat-chip>
+    </mat-chip-set>
   </mat-card>
   <mat-divider></mat-divider>
   <mat-card>
