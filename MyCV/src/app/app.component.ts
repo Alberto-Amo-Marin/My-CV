@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { MaterialModule } from './material.module'; 
-import { EditCvDialogComponent } from './edit-cv-dialog/edit-cv-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { EditCvDialogComponent } from './edit-cv-dialog/edit-cv-dialog.component';
+import { MaterialModule } from './material.module'; 
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [
-    MaterialModule, 
+    MaterialModule, // Importamos el MaterialModule
     EditCvDialogComponent,
     CommonModule
   ]
@@ -41,8 +41,8 @@ export class AppComponent {
         name: this.name,
         title: this.title,
         about: this.about,
-        experience: this.experience,  
-        education: this.education,    
+        experience: this.experience,  // No convertir a cadena, pasar el array directamente
+        education: this.education,    // No convertir a cadena, pasar el array directamente
         skills: this.skills.join(', '),
         projects: this.projects.join(', ')
       }
@@ -53,12 +53,8 @@ export class AppComponent {
         this.name = result.name;
         this.title = result.title;
         this.about = result.about;
-
-        
-        this.experience = result.experience; 
-        this.education = result.education;   
-
-       
+        this.experience = result.experience;  // Asignar directamente como array
+        this.education = result.education;    // Asignar directamente como array
         this.skills = result.skills.split(', ').map((skill: string) => skill.trim());
         this.projects = result.projects.split(', ').map((project: string) => project.trim());
       }
