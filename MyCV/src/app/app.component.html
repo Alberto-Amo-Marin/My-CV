@@ -8,28 +8,36 @@
     <h2>Sobre mí</h2>
     <p>{{ about }}</p>
   </mat-card>
+
   <mat-divider></mat-divider>
+
   <mat-card>
     <h2>Experiencia</h2>
     <div *ngFor="let job of experience">
       <p><strong>{{ job.company }}</strong> - {{ job.role }} ({{ job.period }})</p>
     </div>
   </mat-card>
+
   <mat-divider></mat-divider>
+
   <mat-card>
     <h2>Educación</h2>
     <div *ngFor="let edu of education">
       <p><strong>{{ edu.school }}</strong> - {{ edu.degree }} ({{ edu.year }})</p>
     </div>
   </mat-card>
+
   <mat-divider></mat-divider>
+
   <mat-card>
     <h2>Habilidades</h2>
     <mat-chip-set>
-      <mat-chip *ngFor="let skill of skills; let i = index" color="primary">{{ skill }}</mat-chip>
+      <mat-chip *ngFor="let skill of skills" color="primary">{{ skill }}</mat-chip>
     </mat-chip-set>
   </mat-card>
+
   <mat-divider></mat-divider>
+
   <mat-card>
     <h2>Proyectos</h2>
     <ul>
